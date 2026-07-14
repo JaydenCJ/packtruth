@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="430" viewBox="0 0 800 430" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="13">
+  <rect width="800" height="430" rx="10" fill="#0d1117"/>
+  <rect width="800" height="34" rx="10" fill="#161b22"/>
+  <circle cx="20" cy="17" r="6" fill="#ff5f57"/>
+  <circle cx="40" cy="17" r="6" fill="#febc2e"/>
+  <circle cx="60" cy="17" r="6" fill="#28c840"/>
+  <text x="400" y="21" fill="#8b949e" text-anchor="middle">packtruth — registry manifest vs tarball truth</text>
+
+  <text x="24" y="64" fill="#7ee787">$ packtruth check tiny-datefmt-2.4.1.tgz --manifest registry-manifest.json</text>
+  <text x="24" y="90" fill="#c9d1d9">packtruth check: tiny-datefmt-2.4.1.tgz vs registry-manifest.json (tiny-datefmt@2.4.1)</text>
+  <text x="24" y="110" fill="#8b949e">integrity: sha512, shasum(sha1) ok</text>
+
+  <text x="24" y="142" fill="#c9d1d9" xml:space="preserve">SEVERITY  FIELD                   DIVERGENCE       REGISTRY  TARBALL</text>
+  <text x="24" y="164" fill="#c9d1d9" xml:space="preserve"><tspan fill="#f85149">critical</tspan>  hasInstallScript        differs          false     ["postinstall"]</text>
+  <text x="24" y="184" fill="#c9d1d9" xml:space="preserve"><tspan fill="#f85149">critical</tspan>  scripts.postinstall     only in tarball  —         "node lib/telemetry.js"</text>
+  <text x="24" y="204" fill="#c9d1d9" xml:space="preserve"><tspan fill="#d29922">high</tspan>      bin.node-gyp-helper     only in tarball  —         "lib/helper.js"</text>
+  <text x="24" y="224" fill="#c9d1d9" xml:space="preserve"><tspan fill="#d29922">high</tspan>      dependencies.hoist-env  only in tarball  —         "^0.3.2"</text>
+
+  <text x="24" y="256" fill="#f85149">! scripts.postinstall: install-time script exists only in the tarball —</text>
+  <text x="24" y="274" fill="#f85149">  npm will run it, registry readers never see it</text>
+  <text x="24" y="294" fill="#d29922">! dependencies.hoist-env: hidden entry: only the tarball declares it</text>
+
+  <text x="24" y="326" fill="#c9d1d9">4 divergences (2 critical, 2 high) — verdict: <tspan fill="#f85149" font-weight="bold">DIVERGENT</tspan></text>
+  <text x="24" y="346" fill="#8b949e">exit code 1 — wire it into your publish/vendoring pipeline</text>
+
+  <text x="24" y="384" fill="#7ee787">$ packtruth check honest.tgz --manifest honest-manifest.json</text>
+  <text x="24" y="406" fill="#c9d1d9">0 divergences — verdict: <tspan fill="#28c840" font-weight="bold">CLEAN</tspan> (registry manifest matches the tarball)</text>
+</svg>

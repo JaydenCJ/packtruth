@@ -1,0 +1,55 @@
+{
+  "name": "packtruth",
+  "version": "0.1.0",
+  "description": "Detect manifest confusion: cross-check the npm registry manifest against the package.json inside the tarball and report every divergent field.",
+  "author": "JaydenCJ",
+  "license": "MIT",
+  "type": "module",
+  "bin": {
+    "packtruth": "dist/cli.js"
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "examples",
+    "!examples/demo",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=22.13"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "npm run build && node --test \"tests/*.test.mjs\"",
+    "smoke": "bash scripts/smoke.sh"
+  },
+  "keywords": [
+    "npm",
+    "supply-chain",
+    "manifest-confusion",
+    "security",
+    "tarball",
+    "audit",
+    "package.json",
+    "cli"
+  ],
+  "devDependencies": {
+    "typescript": "^5.7.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JaydenCJ/packtruth.git"
+  },
+  "homepage": "https://github.com/JaydenCJ/packtruth#readme",
+  "bugs": {
+    "url": "https://github.com/JaydenCJ/packtruth/issues"
+  }
+}

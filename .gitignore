@@ -1,0 +1,21 @@
+# --- dependencies ---
+node_modules/
+
+# --- build outputs ---
+dist/
+build/
+out/
+coverage/
+*.tsbuildinfo
+*.tgz
+
+# --- generated example data ---
+examples/demo/
+
+# --- caches / editor / OS ---
+.DS_Store
+.idea/
+.vscode/
+.cache/
+tmp/
+*.log
