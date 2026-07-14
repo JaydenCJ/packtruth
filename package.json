@@ -2,7 +2,7 @@
   "name": "packtruth",
   "version": "0.1.0",
   "description": "Detect manifest confusion: cross-check the npm registry manifest against the package.json inside the tarball and report every divergent field.",
-  "author": "JaydenCJ",
+  "author": "JaydenCJ <aisingioro.kiyon@gmail.com>",
   "license": "MIT",
   "type": "module",
   "bin": {
